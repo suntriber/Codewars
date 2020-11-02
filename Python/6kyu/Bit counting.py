@@ -14,9 +14,11 @@ def main():
     
 
 def count_bits(n):
-    #num_bits = str(bin(n)[2:])
-    #return len([bit for bit in str(num_bits) if bit == '1'])
-    return len([bit for bit in str(bin(n)[2:]) if bit =='1'])
+    num_bits = str(bin(n)[2:])
+    return len([bit for bit in str(num_bits) if bit == '1'])
+    
+    #return len([bit for bit in str(bin(n)[2:]) if bit =='1'])
+
 
 if __name__ == "__main__":
     main()
