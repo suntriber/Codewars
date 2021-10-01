@@ -22,7 +22,56 @@ def main():
     print(solve(60000,70000),15)
     print(solve(60000,130000),55)
     """
-    solve(0,100)
+    print()
+    print()
+    print()
+    #solve(0,100)
+
+    string = 'pynative'
+
+    #print(''.join([string[i] for i in range(len(string)) if not i%2]))
+    #print(*[string[i]+'\n' for i in range(len('pynative')) if not i%2])
+    print(*[string[i] for i in range(0,len('pynative'),2)])
+
+    print()
+    print()
+    print()
+    print('pynative'[4::])
+
+
+    valid = 'tive'
+    string = 'pynative'
+
+    for c in string:
+        if c in valid:
+            print(c)
+    
+    print(func([1,2,3,1,6]))
+
+    
+
+    string = 'Emma is a good developer. Emma is a writer.'
+
+    print(f'Emma appeared {string.count("Emma")} times')
+
+
+    for i in range(1,6):
+        print(f'{i}'*i)
+
+
+    print(func2(1212))
+
+    print(func3([10,20,23,11,17],[13,43,24,36,12]))
+
+
+def func3(ls1, ls2):
+    return [x for x in ls1 if x%2] + [y for y in ls2 if not y%2]
+
+def func2(nr):
+    return str(nr)[::] == str(nr)[::-1]
+
+def func(myL):
+    return myL[0] == myL[-1]
 
 
 def solve(a, b):
@@ -33,12 +82,12 @@ def solve(a, b):
         if len(str(n)) > 1:
             
 
-        if n == upside_down.get(n):
-            nums.append(n)
+            if n == upside_down.get(n):
+                nums.append(n)
             
     print(nums)
                 
-        
+    
 
 
 

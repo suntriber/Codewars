@@ -1,0 +1,14 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/Patric/OneDrive/Dokument/GitHub/Codewars/C/Mumbling 7kuy/main.c
+stdio.h
+-
+string.h
+-
+

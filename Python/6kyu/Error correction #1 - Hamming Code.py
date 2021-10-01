@@ -10,12 +10,13 @@ def encode(string):
         s = ord(s)
         s = bin(s)[2:].zfill(8)
         tmp += s
-    
+    print('encoded string: ',tmp)
     for i in range(len(tmp)):
         if tmp[i] == '0':
             ret += '000'
         else:
             ret += '111'
+    print('encoded string with added bits: ', ret)
     return ret
 
 
