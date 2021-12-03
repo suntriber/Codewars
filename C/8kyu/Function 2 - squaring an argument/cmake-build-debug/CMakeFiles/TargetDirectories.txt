@@ -1,0 +1,3 @@
+C:/Users/Patric/OneDrive/Dokument/GitHub/Codewars/C/8kyu/Function 2 - squaring an argument/cmake-build-debug/CMakeFiles/Function_2___squaring_an_argument.dir
+C:/Users/Patric/OneDrive/Dokument/GitHub/Codewars/C/8kyu/Function 2 - squaring an argument/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/Patric/OneDrive/Dokument/GitHub/Codewars/C/8kyu/Function 2 - squaring an argument/cmake-build-debug/CMakeFiles/rebuild_cache.dir
