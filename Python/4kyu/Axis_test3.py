@@ -47,7 +47,20 @@ Write an efficient algorithm for the following assumptions:
 """
 
 def solution(R, V):
-    pass
+    A, B, B_neg, A_neg = 0, 0, [0], [0]
+    for i, _ in enumerate(R):
+        if R[i] == 'A':
+            A += V[i]
+            B -= V[i]
+            if B < 0:
+                B_neg.append(B)
+        elif R[i] == 'B':
+            B += V[i]
+            A -= V[i]
+            if A < 0:
+                A_neg.append(A)
+    return [abs(min(A_neg)), abs(min(B_neg))]
+
 
 
 
