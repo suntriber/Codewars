@@ -1,0 +1,16 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/Patric/OneDrive/Dokument/GitHub/Codewars/C/8kyu/Powers of 2/main.c
+stdio.h
+-
+inttypes.h
+-
+math.h
+-
+
