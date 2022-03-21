@@ -7,6 +7,7 @@ int evaporator(double content, double evap_per_day, double threshold);
 int main() {
     printf("%d\n", evaporator(10,10,10));
     printf("%d\n", evaporator(10,10,5));
+    printf("%d\n", evaporator(10,10,5));
     return 0;
 }
 
