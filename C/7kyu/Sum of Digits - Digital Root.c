@@ -1,4 +1,7 @@
 #include <stdio.h>
+/*
+https://www.codewars.com/kata/541c8630095125aba6000c00/train/c
+*/
 
 int digital_root(int n);
 
