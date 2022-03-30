@@ -3,6 +3,7 @@ https://www.codewars.com/kata/541a354c39c5efa5fa001372
 */
 
 #include <stdio.h>
+#include <stdint.h>
 #include <inttypes.h>
 #include <string.h>
 #include <stdlib.h>
@@ -10,95 +11,161 @@ https://www.codewars.com/kata/541a354c39c5efa5fa001372
 uint32_t IP_to_num (const char *IP);
 char *num_to_IP (uint32_t num, char *IP);
 char *int_2_bin (uint8_t target, char *binary);
+char *reverse_string(char *s);
 
 int main(){
 
-    int i = 196;
-    int b = 0b0001;
-    int c = 0b00000000;
-    uint32_t d = 0;
-    printf("size of int : %d\n", sizeof(i));
-    char buffer[65];
-    atoi(itoa(i, buffer, 2));
 
-    puts(buffer);
 
-    const char *IP = "192.168.1.1";
-    while (*IP)printf("%c", *IP++);
-    printf("\n");
-    //char *buffer2;
-    //int_2_bin(i, buffer2);
-    //puts(buffer2);
+//    const char *IP = "192.168.1.1";
+//    while (*IP)printf("%c", *IP++);
+//    printf("\n");
+//
+//    char ip[16] = "192.168.1.1";
+//    uint32_t data;
+//
+//    data = IP_to_num(ip);
+//
+//    printf("data = %d\n", data);
 
-    uint32_t r = 9876;
+//    print_hello();
+//    print_goodbye();
+//    int x = add(5, 4);
+//    int y = sub(100, 50);
 
-    //r = IP_to_num(IP);
+    //printf("x : %d, y : %d\n", x, y);
 
-    printf("%d\n", r);
+    char ip[16] = "192.168.1.1";
 
-    char st[] ="Where there is will, there is a way.";
-    char *ch;
-    ch = strtok(st, " ");
-    while (ch != NULL) {
-    printf("%s\n", ch);
-    ch = strtok(NULL, " ,");
+    char bin[9];
+
+    char *p = ip;
+
+    uint8_t tar;
+
+    char *token = strtok(p, ".");
+
+    puts(token);
+    char buffer[33];
+    memset(buffer, NULL, 32);
+    while (token != NULL){
+        tar = atoi(token);
+        int_2_bin(tar, bin);
+        reverse_string(bin);
+        puts(bin);
+        strcat(buffer, bin);
+        puts(buffer);
+        token = strtok(NULL, ".");
     }
-    getch();
+    puts(buffer);
+    long ret;
 
 
+    char *pp = buffer;
+    uint32_t total = 0;
+
+    while (*pp){
+        total <<= 1;
+        if (*pp++ == '1')total^=1;
+    }
+    printf("%u\n", total);
+
+
+
+
+
+
+ //puts(bin);
+ //puts(bin2);
+ //puts(bin3);
+ //puts(bin4);
+
+ //reverse_string(bin);
+ //reverse_string(bin2);
+ //reverse_string(bin3);
+ //reverse_string(bin4);
+
+ //puts(bin);
+ //puts(bin2);
+ //puts(bin3);
+ //puts(bin4);
+
+ //strcat(buffer, bin);
+ //strcat(buffer, bin2);
+ //strcat(buffer, bin3);
+ //strcat(buffer, bin4);
 
 return 0;
 }
 
 
-char *int_2_bin (uint8_t target, char *binary){
-
-    int n, k;
-
-    for (int i = 0; i < 8; i++){
-        k = target >> i;
-
-        if (k & 1) binary[i] = '1';
-        else binary[i] = '0';
-    }
-    binary[8] = '\0';
-    return binary;
+char *reverse_string(char *s){
+ int i;
+ char temp;
+ for (i = 0; i < 8/2; i++){
+     temp = s[i];
+     s[i] = s[8-i-1];
+     s[8-i-1] = temp;
+ }
+ return s;
 }
 
 
-uint32_t IP_to_num (const char *IP)
-{
-    const char *p = IP;
-    char buf[4]; char *bin;
-    char all_four[33];
-    int i;
-    uint8_t num;
-    i = 0;
-    char c;
+char *int_2_bin (uint8_t target, char *binary){
+
+ int n, k, i;
+
+ for (i = 0; i < 8; i++){
+     k = target >> i;
+
+     if (k & 1) binary[i] = '1';
+     else binary[i] = '0';
+ }
+ binary[8] = '\0';
+ return binary;
 
 
-    while(*p){
-        c = *p++;
-        if (c == '.'){
-            printf("%c\n", c);
-            num = atoi(buf);
-            int_2_bin(num, bin);
-            strcat(all_four, bin);
-            puts(bin);
-            buf[0] = buf[1] = buf[2] = buf[3] = '\0';
-            i = 0;num = 0;
-            continue;
-        }
-        buf[i++] = c;
-        puts(all_four);
+
+
+}
+
+
+uint32_t IP_to_num (const char *ip){
+
+    char IP[16] = "192.168.1.1";
+    char *buffer;
+    char bin[9];
+
+    const char *p = &IP;
+    uint8_t tar;
+
+    char *token = strtok(p, ".");
+
+    //puts(token);
+
+    while (token != NULL){
+        tar = atoi(token);
+        int_2_bin(tar, bin);
+        reverse_string(bin);
+        //puts(bin);
+        strcat(buffer, bin);
+        //puts(buffer);
+        token = strtok(NULL, ".");
     }
-
-	return -1;
+    puts(buffer);
+    uint32_t ret;
+    char *pp;
+    strtol(buffer, &pp, 2);
 }
 
 char *num_to_IP (uint32_t num, char *IP)
 {
 // write to IP and return it
-	*IP = '\0';
-	return IP;
+ *IP = '\0';
+ return IP;
 }
+
+/*
+11000000 10101000 00000001 00000001
+11000000 10101000 00000001 00000001
+ */
