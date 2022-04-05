@@ -1,9 +1,11 @@
 #include <stdio.h>
 #include <string.h>
-
-char *accum(char *source);
+#include <ctype.h>
+#include <stdlib.h>
 
 /*
+ * https://www.codewars.com/kata/5667e8f4e3f572a8f2000039/train/c
+ *
  * This time no story, no theory. The examples below show you how to write function accum:
 
 Examples:
@@ -13,63 +15,101 @@ accum("cwAt") -> "C-Ww-Aaa-Tttt"
 The parameter of accum is a string which includes only letters from a..z and A..Z.
  */
 
+char *accum(const char *source);
 
 
 int main() {
 
-
-    char txt[] = "12345\0abcdef";
-
     char test1[] = "ZpglnRxqenU";
     char test2[] = "AbCd";
     char test3[] = "RqaEzty";
+    char *test4 = "HbideVbxncC";
 
-    char expected1[] = "Z-Pp-Ggg-Llll-Nnnnn-Rrrrrr-Xxxxxxx-Qqqqqqqq-Eeeeeeeee-Nnnnnnnnnn-Uuuuuuuuuuu";
-    char expected2[] = "A-Bb-Ccc-Dddd";
-    char expected3[] = "R-Qq-Aaa-Eeee-Zzzzz-Tttttt-Yyyyyyy";
+    puts(accum(test1));
+    puts(accum(test2));
+    puts(accum(test3));
+    puts(accum(test4));
 
-
-
-    //printf("%s",accum(test2));
-    accum(test2);
     return 0;
 }
 
 
-char *accum(char *source) {
-    int i;
-    int len = (int) strlen(source);
-    int counter = len;
+char *accum(const char *source) {
 
-    char test[len];
+    int i, j, k;
+    k = 0;
+    int size = (int) strlen(source);
+    int t_size = size * (size+1) / 2 + size;
+    char *buf = malloc(t_size);
 
-    for (i = 0; i < len; i++) {
-        char tmp = source[i];
-        if (tmp >= 65 && tmp <= 90) {
-            tmp += 32;
-            test[i] = tmp;
-        } else {
-            test[i] = tmp;
+    for (i = 0; i < size; i++){
+        for (j = -1; j < i; j++){
+            if (j == -1){
+                buf[k] = toupper(source[i]);
+            }
+            else {
+                buf[k] = tolower(source[i]);
+            }
+            k++;
         }
-        counter+= (i+1) * 1;
-        printf("%c", test[i]);
+        buf[k] = '-';
+        k++;
     }
 
-    char test2[counter];
+    buf[k-1] = '\0';
 
-
-    for (i = 0; i < counter; i++){
-
-        if (test[i+1] == test[i]){
-            
-        }
-
-        test2[i] = test[i];
-
-
-    }
-
-    printf("%d", (int) sizeof(test2));
-
-    return NULL;
+    return buf;
 }
+
+
+/*
+#include <malloc.h>
+#include <string.h>
+#include <ctype.h>
+
+char *accum(const char *source) {
+  int len = strlen(source);
+  char *str = (char*)malloc(len * (len + 1));
+  int i = 0;
+
+  for (int j = 0; j < len; j++, i++) {
+    for (int k = 0; k < (j + 1); k++, i++) str[i] = !k ? toupper(source[j]) : tolower(source[j]);
+    str[i] = '-';
+  }
+  str[i-1] = '\0';
+  return str;
+}
+ */
+
+
+/*
+#include <malloc.h>
+#include <string.h>
+#include <ctype.h>
+
+char *accum(const char *source) {
+  int len = strlen(source);
+  char *str = (char*)malloc(len * (len + 1) / 2 + len);
+  int i = 0;
+
+  for (int j = 0; j < len; j++, i++) {
+    for (int k = 0; k < (j + 1); k++, i++) str[i] = !k ? toupper(source[j]) : tolower(source[j]);
+    str[i] = '-';
+  }
+  str[i-1] = '\0';
+  return str;
+}
+ */
+
+
+
+/*
+char *accum(const char *s) {
+  char *r = calloc(strlen(s) * (strlen(s)+1) + 1, 1), *q = r;
+  for (char *p = s; *p; p++) {
+    if (p != s) *q++ = '-';
+    for (int j = 0; j <= p-s; j++) *q++ = j == 0 ? toupper(*p) : tolower(*p);
+  }
+  return r;
+}
+ */

@@ -6,9 +6,13 @@
 
 #IncludeRegexTransform: 
 
-C:/Users/Patric/OneDrive/Dokument/GitHub/Codewars/C/Mumbling 7kuy/main.c
+C:/Users/Patric/OneDrive/Dokument/GitHub/Codewars/C/Mumbling 7kyu/main.c
 stdio.h
 -
 string.h
+-
+ctype.h
+-
+stdlib.h
 -
 
