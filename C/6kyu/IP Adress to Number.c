@@ -15,26 +15,6 @@ char *reverse_string(char *s);
 
 int main(){
 
-
-
-//    const char *IP = "192.168.1.1";
-//    while (*IP)printf("%c", *IP++);
-//    printf("\n");
-//
-//    char ip[16] = "192.168.1.1";
-//    uint32_t data;
-//
-//    data = IP_to_num(ip);
-//
-//    printf("data = %d\n", data);
-
-//    print_hello();
-//    print_goodbye();
-//    int x = add(5, 4);
-//    int y = sub(100, 50);
-
-    //printf("x : %d, y : %d\n", x, y);
-
     char ip[16] = "192.168.1.1";
 
     char bin[9];
@@ -73,28 +53,6 @@ int main(){
 
 
 
-
-
- //puts(bin);
- //puts(bin2);
- //puts(bin3);
- //puts(bin4);
-
- //reverse_string(bin);
- //reverse_string(bin2);
- //reverse_string(bin3);
- //reverse_string(bin4);
-
- //puts(bin);
- //puts(bin2);
- //puts(bin3);
- //puts(bin4);
-
- //strcat(buffer, bin);
- //strcat(buffer, bin2);
- //strcat(buffer, bin3);
- //strcat(buffer, bin4);
-
 return 0;
 }
 
@@ -123,10 +81,6 @@ char *int_2_bin (uint8_t target, char *binary){
  }
  binary[8] = '\0';
  return binary;
-
-
-
-
 }
 
 
@@ -157,6 +111,7 @@ uint32_t IP_to_num (const char *ip){
     char *pp;
     strtol(buffer, &pp, 2);
 }
+
 
 char *num_to_IP (uint32_t num, char *IP)
 {
