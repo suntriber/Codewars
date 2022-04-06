@@ -1,3 +1,4 @@
 *.exe
 *.o
 C/6kyu/.vscode/tasks.json
+*.json
