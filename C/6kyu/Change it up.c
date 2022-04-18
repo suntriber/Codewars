@@ -10,31 +10,27 @@ char *change_it_up (char *str_out, const char *str_in);
 
 int main(){ 
 
-    // const char ass[] = "abcdefghijklmnopqrstuvxyz";
-    // const char *s = &ass[0];
-    char *ss;
-    char *sss;
 
-    const char *s = "zZzZABcd";
-    
+    char *ss = malloc(sizeof(char)*100);
 
-    printf("dbU30 -> %s\n", change_it_up(ss, (const char*)"Cat30"));
-	// printf("bmjdf -> %s\n", change_it_up("Alice", s));
-	// printf("tqpOhf1 -> %s\n", change_it_up("sponge1", s));
-	// printf("Ifmmp xpsmE -> %s\n", change_it_up("Hello World", s));
-	// printf("Epht -> %s\n", change_it_up("dogs", s));
-	// printf("A -> %s\n", change_it_up(sss, s));
-	// printf(" -> %s\n", change_it_up("", s));
+    // printf("dbU30 -> %s\n", change_it_up(ss, (const char*)"Cat30"));
+	// printf("bmjdf -> %s\n", change_it_up(ss, "Alice"));
+	// printf("tqpOhf1 -> %s\n", change_it_up(ss, "sponge1"));
+	printf("Ifmmp xpsmE -> %s\n", change_it_up(ss, (const char*)"Hello World"));
+	// printf("Epht -> %s\n", change_it_up(ss, "dogs"));
+	// printf("A -> %s\n", change_it_up(ss, (const char*)"ZzzZZzzZZzzZZ"));
+	// printf(" -> %s\n", change_it_up(ss, ""));
     return 0;
 }
 
 
 char *change_it_up (char *str_out, const char *str_in){
 
+    puts(str_in);
     char *tmp = str_out;
     const char *tmp2 = str_in;
     
-
+    
     while(*tmp2){
         if (isalpha(*tmp2))*tmp = *tmp2 + 1;
         else *tmp = *tmp2;
@@ -43,11 +39,9 @@ char *change_it_up (char *str_out, const char *str_in){
         *tmp2++;
         }
     
-    
+    puts(str_out);
     char *ntmp = str_out;
     const char *tmp3 = str_out;
-
-
 
     while(*tmp3){
         if (*tmp3 == 'e' || *tmp3 == 'E')*ntmp='E';
@@ -58,7 +52,7 @@ char *change_it_up (char *str_out, const char *str_in){
         *ntmp++;
         *tmp3++;
     }
-
-    // *tmp = '\0';
+    puts(str_out);
+    // *ntmp = '\0';
 	return str_out;
 }
