@@ -43,7 +43,6 @@ char *chmod_calculator (char octal[4],
     if (p[i][2] == 'x')sum+=1;
     
     octal[i] = (char) sum + 48;
-      
     }
 
 	octal[i] = '\0';
