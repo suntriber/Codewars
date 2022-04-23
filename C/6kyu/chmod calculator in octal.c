@@ -49,3 +49,38 @@ char *chmod_calculator (char octal[4],
 	return octal;
 
 }
+
+
+
+/*
+int permissions_to_octal (const char permissions[3])
+{
+  return
+    ((permissions[0] != '-') << 2) |
+    ((permissions[1] != '-') << 1) |
+    ((permissions[2] != '-') << 0)
+  ;
+}
+
+char *chmod_calculator (char octal[4], const char user[3], const char group[3], const char other[3])
+{
+  if (user  == NULL) user  = "---";
+  if (group == NULL) group = "---";
+  if (other == NULL) other = "---";
+
+  sprintf(octal, "%d%d%d",
+    permissions_to_octal(user),
+    permissions_to_octal(group),
+    permissions_to_octal(other)
+  );
+  return octal;
+}
+*/
+
+
+/*
+#include <string.h>
+
+char chmod (char *p) { return p?48+4*(p[0]!='-')+2*(p[1]!='-')+(p[2]!='-'):48; }
+char *chmod_calculator (char o[4], const char u[3], const char g[3], const char w[3]) { return strcpy (o, (char[4]){chmod (u), chmod (g), chmod (w), 0}); }
+*/
