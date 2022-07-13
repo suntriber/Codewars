@@ -1,8 +1,6 @@
 package main
 
-import "fmt"
-
 func main() {
 
-    fmt.Println("Hello, World!")
+	TwoOldestAges([]int{1, 3, 9, 5, 7})
 }
